@@ -1,0 +1,117 @@
+html {
+        background: url(bg.jpg) no-repeat center fixed;
+        background-size: cover;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50; /*Green*/
+}
+.active2 {
+  background-color: gold;
+  color: black;
+}
+.active1 {
+  background-color: #FF00FF; /*Fuchsia*/
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  color: white;
+}
+
+h2 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  color: white;
+}   
+
+.row {
+  display: flex;
+  justify-content:flex-start;
+  
+}
+
+.column {
+  flex: 0 1 auto;
+  margin-right: 10px;
+}
+
+
+.button {
+  background-color: #FF00FF; /* Fushsia */
+  border: 1px solid black;
+  color: white;
+  padding: 15px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  display: block;
+  width: 175px;
+  cursor: pointer;
+}
+
+.button2 {
+  background-color: gold; /*Red */
+  border: 1px solid black;
+  color: black;
+  padding: 15px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  width: 175px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.button3 {
+  background-color: green; /* Green */
+  border: 1px solid black;
+  color: white;
+  padding: 15px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  width: 175px;
+  font-size: 16px;
+  cursor: pointer;
+  /*margin: 10px;*/
+}
+
+.column2 {
+  column-count: 2;
+}
