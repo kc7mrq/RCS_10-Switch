@@ -1,0 +1,38 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <!DOCTYPE html>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<ul>
+  <li><a class="active" href="flex.php">Cycle Flex</a></li>
+  <li><a href="home.php">Relay Status</a></li>
+  <li><a href="power.php">Power</a></li>
+  <li><a href="about.php">About</a></li>
+</ul>
+
+<!--
+Form submission code that creates the button and creates the variables an1 - ant8
+-->
+<br>
+<h2>Antenna Control:</H2>
+<a href="an1.php" class="button3">20m - 6m Hexx Beam</a>
+<a href="an2.php" class="button3">40m Hexx Beam</a>
+<a href="an3.php" class="button3">Antenna 3</a>
+<a href="an4.php" class="button3">Antenna 4</a>
+<a href="an5.php" class="button3">Antenna 5</a>
+<a href="an6.php" class="button3">Antenna 6</a>
+<a href="an7.php" class="button3">Antenna 7</a>
+<a href="an8.php" class="button2">Antenna 8</a>
+
+<?php
+
+                 $gpio_7 = shell_exec("/usr/local/bin/gpio -g write 4 1");
+                 $gpio_3 = shell_exec("/usr/local/bin/gpio -g write 22 1");
+                 $gpio_22 = shell_exec("/usr/local/bin/gpio -g write 6 1");
+?>
+         </body>
+ </html>

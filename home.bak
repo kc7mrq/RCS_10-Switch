@@ -1,0 +1,114 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <!DOCTYPE html>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+
+
+<?php include("menu.html");
+echo "<H1>Relay Status</H1>";
+
+// Executes the GPIO command to read the three pins. Issues variables to the pins.
+// Echos the status of each pin to determine which antenna selected in BDC format.
+         shell_exec("/usr/local/bin/gpio -g mode 4 out");
+         shell_exec("/usr/local/bin/gpio -g mode 22 out");
+         shell_exec("/usr/local/bin/gpio -g mode 6 out");
+	 shell_exec("/usr/local/bin/gpio -g mode 26 out");
+  exec ( "gpio -g read 4", $status4 );
+  exec ( "gpio -g read 22", $status22 );
+  exec ( "gpio -g read 6", $status6 );
+  exec ( "gpio -g read 26", $status26 );
+  exec("python3 amp_status.py", $stby);
+//  echo $stby[0];
+//  echo $status4[0] ;
+//  echo $status22[0] ;
+//  echo $status6[0] ;
+//  echo "<br>";
+// IF ELSEIF statements to determine which antenna is selected when submitting 
+// the selection.
+
+if ($status4[0] == "0" && $status22[0] == "0" && $status6[0] == "0") {
+	//echo "<span style='color:white';>Hexx Beam is initially set.";
+        echo "<button class= button3> 20m - 6m Hexx Beam Active</button>";
+}
+
+elseif ($status4[0] == "1" && $status22[0] == "0" && $status6[0] == "0") {
+        //echo "<span style='color:white';>40m EFHW is currently selected.";
+	echo "<button class= button3>Antenna 2</button>";
+}
+
+elseif ($status4[0] == "0" && $status22[0] == "1" && $status6[0] == "0") {
+        //echo "<span style='color:white';>Antenna 3 is currently selected.";
+	echo "<button class= button3> Antenna 3 Active</button>";
+}
+
+elseif ($status4[0] == "1" && $status22[0] == "1" && $status6[0] == "0") {
+        //echo "<span style='color:white';>Antenna 4 is currently selected.";
+	echo "<button class= button3> Antenna 4 Active</button>";
+}
+
+elseif ($status4[0] == "0" && $status22[0] == "0" && $status6[0] == "1") {
+        //echo "<span style='color:white';>Antenna 5 is currently selected.";
+	echo "<button class= button3> Antenna 5 Active</button>";
+}
+
+elseif ($status4[0] == "1" && $status22[0] == "0" && $status6[0] == "1") {
+        //echo "<span style='color:white';>Antenna 6 is currently selected.";
+	echo "<button class= button3>40M Hexx Beam Active</button>";
+}
+
+elseif ($status4[0] == "0" && $status22[0] == "1" && $status6[0] == "1") {
+        //echo "<span style='color:white';>Antenna 7 is currently selected.";
+	echo "<button class= button3> Antenna 7 Active</button>";
+}
+
+elseif ($status4[0] == "1" && $status22[0] == "1" && $status6[0] == "1") {
+        //echo "<span style='color:white';>Antenna 8 is currently selected.";
+	echo "<button class='button3'> Antenna 8 Active</button>";
+}
+
+if ($status26[0] == "0") {
+        //echo "<span style='color:white';>Hexx Beam is initially set.";
+        echo "<button class= button2> Flex Radio In Standby Mode</button>";
+}
+
+elseif ($status26[0] == "1") {
+        //echo "<span style='color:white';>40m EFHW is currently selected.";
+        echo "<button class= button3> Flex Radio Operational</button>";
+}
+
+if ($stby[0] == "b'^OS0;'") {
+	echo "<button class= button2> Amp in Standby</button>";
+ }
+ else {
+	echo "<button class= button3> Amp Active</button>";
+}
+?>
+
+<!--
+Form submission code that creates the button and creates the variables an1 - ant8
+-->
+<br>
+
+<h2>Antenna Control:</H2>
+ <div class="row">
+   <div class="column">
+    <a href="an1.php" class="button3">20m - 6m Hexx Beam</a>
+    <a href="an2.php" class="button3">Antenna 2</a>
+    <a href="an3.php" class="button3">Antenna 3</a>
+    <a href="an4.php" class="button3">Antenna 4</a>
+   </div>
+
+   <div=class="column">
+    <a href="an5.php" class="button3">Antenna 5</a>
+    <a href="an6.php" class="button3">40m Hexx Beam</a>
+    <a href="an7.php" class="button3">Antenna 7</a>
+    <a href="an8.php" class="button3">Antenna 8</a>
+   </div>
+ </div>
+</body>
+ </html>

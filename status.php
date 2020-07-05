@@ -1,5 +1,5 @@
 <?php
-//include("menu.html");
+include('config.php');
 echo "<H1>Station Status</H1>";
 
 // Executes the GPIO command to read the three pins. Issues variables to the pins.
@@ -25,42 +25,42 @@ echo "<H1>Station Status</H1>";
 // the selection.
 if ($status4[0] == "0" && $status22[0] == "0" && $status6[0] == "0") {
         //echo "<span style='color:white';>Hexx Beam is initially set.";
-        echo "<button class= button3> 20m - 6m Active</button>";
+        echo "<button class= button3>$an1 Active</button>";
 }
 
 elseif ($status4[0] == "1" && $status22[0] == "0" && $status6[0] == "0") {
         //echo "<span style='color:white';>40m EFHW is currently selected.";
-        echo "<button class= button3>Antenna 2</button>";
+        echo "<button class= button3>$an2 Active</button>";
 }
 
 elseif ($status4[0] == "0" && $status22[0] == "1" && $status6[0] == "0") {
         //echo "<span style='color:white';>Antenna 3 is currently selected.";
-        echo "<button class= button3> Antenna 3 Active</button>";
+        echo "<button class= button3>$an3 Active</button>";
 }
 
 elseif ($status4[0] == "1" && $status22[0] == "1" && $status6[0] == "0") {
         //echo "<span style='color:white';>Antenna 4 is currently selected.";
-        echo "<button class= button3> Antenna 4 Active</button>";
+        echo "<button class= button3>$an4 Active</button>";
 }
 
 elseif ($status4[0] == "0" && $status22[0] == "0" && $status6[0] == "1") {
         //echo "<span style='color:white';>Antenna 5 is currently selected.";
-        echo "<button class= button3> Antenna 5 Active</button>";
+        echo "<button class= button3>$an5 Active</button>";
 }
 
 elseif ($status4[0] == "1" && $status22[0] == "0" && $status6[0] == "1") {
         //echo "<span style='color:white';>Antenna 6 is currently selected.";
-        echo "<button class= button3>40M Hexx Active</button>";
+        echo "<button class= button3>$an6 Active</button>";
 }
 
 elseif ($status4[0] == "0" && $status22[0] == "1" && $status6[0] == "1") {
         //echo "<span style='color:white';>Antenna 7 is currently selected.";
-        echo "<button class= button3> Antenna 7 Active</button>";
+        echo "<button class= button3>$an7 Active</button>";
 }
 
 elseif ($status4[0] == "1" && $status22[0] == "1" && $status6[0] == "1") {
         //echo "<span style='color:white';>Antenna 8 is currently selected.";
-        echo "<button class='button3'> Antenna 8 Active</button>";
+        echo "<button class='button3'>$an8 Active</button>";
 }
 
 if ($status26[0] == "0") {

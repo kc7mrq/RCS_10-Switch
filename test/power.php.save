@@ -1,0 +1,80 @@
+<html>
+ <head>
+ <meta name="viewport" content="width=device-width" />
+<!DOCTYPE html>
+<style>
+html {
+        background: url(bg.jpg) no-repeat center fixed;
+        background-size: cover;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  color: white;
+}
+h2 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  color: white;
+}
+</style>
+</head>
+<body>
+<ul>
+  <li><a class="active" href="home.php">Cycle Flex</a></li>
+  <li><a href="home.php">Relay Status</a></li>
+  <li><a href="power.php">Power</a></li>
+  <li><a href="about.php">About</a></li>
+</ul>
+
+<H2>Remote Switch Reboot:</H2>
+        <form method="get" action="power.php">
+                 <input type="submit" value="Reboot" name="reb">
+        </form>
+<?php
+        if(isset($_GET['reb'])){
+                 exec("python /var/www/html/reboot.py");
+                 echo "<span style='color:white';>Reboot in progress.";
+        }
+ ?>
+</body>
+</html>
